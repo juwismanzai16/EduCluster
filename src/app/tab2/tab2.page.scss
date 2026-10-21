@@ -1,0 +1,500 @@
+/* =================================
+   GLOBAL
+================================= */
+
+ion-content {
+  --background: #f4f8f7;
+}
+
+
+/* =================================
+   HEADER TAB 2
+================================= */
+
+ion-toolbar {
+  --background: #ffffff;
+  --border-color: transparent;
+}
+
+ion-title {
+  color: #00897B;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+
+/* =================================
+   PAGE BANNER
+================================= */
+
+.page-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: -16px -16px 20px;
+  padding: 24px 20px;
+
+  background: linear-gradient(
+    135deg,
+    #00897B,
+    #26A69A
+  );
+
+  color: #ffffff;
+}
+
+.banner-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  opacity: 0.85;
+}
+
+.banner-content h1 {
+  margin: 6px 0;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.banner-content p {
+  max-width: 300px;
+
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  opacity: 0.9;
+}
+
+.banner-icon {
+  font-size: 42px;
+}
+
+
+/* =================================
+   IMPORT DATA EXCEL
+================================= */
+
+.import-card {
+  margin: 0 0 20px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 14px rgba(0, 137, 123, 0.10);
+}
+
+
+/* Header Import */
+
+.import-header-color {
+  background: linear-gradient(
+    135deg,
+    #00695C,
+    #00897B
+  );
+}
+
+
+/* Isi Import */
+
+.import-card ion-card-content {
+  padding: 18px;
+}
+
+.import-info {
+  margin: 0 auto 16px;
+
+  max-width: 650px;
+
+  color: #607D8B;
+
+  font-size: 12px;
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* Tombol pilih file */
+
+.import-card ion-button {
+  display: block;
+
+  width: 220px;
+
+  margin: 0 auto;
+
+  height: 42px;
+
+  --background: #00897B;
+  --background-hover: #00796B;
+  --background-activated: #00695C;
+
+  --border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: 0 3px 8px rgba(0, 137, 123, 0.18);
+}
+
+
+/* Nama file */
+
+.nama-file {
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin: 14px auto 0;
+
+  padding: 8px 14px;
+
+  border-radius: 7px;
+
+  background: #E8F5F2;
+
+  color: #00695C;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+/* =================================
+   CARD TABEL
+================================= */
+
+.table-card {
+  margin: 0 0 20px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 14px rgba(0, 137, 123, 0.12);
+}
+
+
+/* =================================
+   HEADER SECTION
+================================= */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 18px;
+
+  color: #ffffff;
+}
+
+.table-header-color {
+  background: linear-gradient(
+    135deg,
+    #00897B,
+    #26A69A
+  );
+}
+
+.form-header-color {
+  background: linear-gradient(
+    135deg,
+    #00695C,
+    #00897B
+  );
+}
+
+.section-header span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  opacity: 0.85;
+}
+
+.section-header h2 {
+  margin: 5px 0 0;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.section-icon {
+  font-size: 30px;
+}
+
+
+/* =================================
+   TABEL
+================================= */
+
+ion-grid {
+  min-width: 850px;
+
+  padding: 0;
+}
+
+.table-title {
+  background: #E0F2F1;
+
+  color: #00695C;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.table-title ion-col {
+  padding: 12px 8px;
+
+  text-align: center;
+}
+
+.table-data {
+  background: #ffffff;
+
+  border-bottom: 1px solid #E0F2F1;
+
+  color: #455A64;
+
+  font-size: 12px;
+}
+
+.table-data ion-col {
+  padding: 11px 8px;
+
+  text-align: center;
+}
+
+.table-data:active {
+  background: #E0F2F1;
+}
+
+
+/* =================================
+   PROSES DATA
+================================= */
+
+.process-section {
+  margin: 0 0 22px;
+}
+
+.process-label {
+  margin-bottom: 10px;
+
+  padding-left: 4px;
+}
+
+.process-label span {
+  color: #00897B;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.process-label p {
+  margin: 4px 0 0;
+
+  color: #78909C;
+
+  font-size: 12px;
+}
+
+ion-button[color="tertiary"] {
+  --background: #00897B;
+  --background-hover: #00796B;
+  --background-activated: #00695C;
+
+  --border-radius: 10px;
+
+  height: 48px;
+
+  font-weight: 600;
+
+  box-shadow: 0 4px 10px rgba(0, 137, 123, 0.22);
+}
+
+
+/* =================================
+   FORM SECTION
+================================= */
+
+.form-section {
+  margin-bottom: 30px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 14px rgba(0, 137, 123, 0.10);
+}
+
+.form-content {
+  padding: 14px;
+}
+
+
+/* =================================
+   FORM INPUT
+================================= */
+
+ion-item {
+  --background: #F8FBFA;
+
+  --border-color: #DDEDEA;
+
+  --highlight-color-focused: #00897B;
+
+  margin-bottom: 8px;
+
+  border-radius: 8px;
+}
+
+ion-label {
+  color: #607D8B;
+}
+
+ion-input {
+  --color: #263238;
+}
+
+
+/* =================================
+   TOMBOL CRUD
+================================= */
+
+.button-group {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.button-group ion-button:first-child {
+  grid-column: 1 / -1;
+}
+
+.button-group ion-button {
+  height: 40px;
+
+  font-size: 12px;
+
+  --border-radius: 8px;
+}
+
+
+/* =================================
+   WARNA TOMBOL CRUD
+================================= */
+
+.button-group ion-button[color="success"] {
+  --background: #00897B;
+}
+
+.button-group ion-button[color="primary"] {
+  --background: #26A69A;
+}
+
+.button-group ion-button[color="warning"] {
+  --background: #FFB300;
+}
+
+.button-group ion-button[color="danger"] {
+  --background: #E53935;
+}
+
+
+/* =================================
+   KOLOM PENCARIAN
+================================= */
+
+.search-box {
+  margin: 4px 16px 8px;
+
+  --background: #F7FBFA;
+
+  --border-radius: 8px;
+
+  border: 1px solid #D6ECE7;
+
+  width: 220px;
+
+  height: 34px;
+
+  min-height: 34px;
+
+  margin-left: auto;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.search-box ion-icon {
+  color: #00897B;
+
+  padding-left: 8px;
+
+  font-size: 16px;
+}
+
+.search-box ion-input {
+  --padding-start: 6px;
+
+  --padding-top: 2px;
+
+  --padding-bottom: 2px;
+
+  --min-height: 34px;
+
+  font-size: 12.5px;
+
+  flex: 1;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+  .banner-content h1 {
+    font-size: 24px;
+  }
+
+  .banner-content p {
+    max-width: 230px;
+  }
+
+  .banner-icon {
+    font-size: 36px;
+  }
+
+  .import-card ion-button {
+    width: 100%;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+
+}

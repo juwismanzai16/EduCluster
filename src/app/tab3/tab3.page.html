@@ -1,0 +1,671 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Proses Clustering</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+
+  <!-- ======================= -->
+  <!-- HEADER HALAMAN -->
+  <!-- ======================= -->
+
+  <div class="page-banner">
+
+    <div class="banner-content">
+
+      <span class="banner-label">
+        ANALISIS DATA MINING
+      </span>
+
+      <h1>Proses Clustering</h1>
+
+      <p>
+        Proses pengelompokan tingkat prestasi siswa menggunakan algoritma
+        K-Means Clustering.
+      </p>
+
+    </div>
+
+    <div class="banner-icon">
+      📊
+    </div>
+
+  </div>
+
+
+  <!-- ======================= -->
+  <!-- INFORMASI ANALISIS -->
+  <!-- ======================= -->
+
+  <div class="section-label">
+    INFORMASI ANALISIS
+  </div>
+
+
+  <ion-card class="info-card">
+
+    <div class="section-header info-header">
+
+      <div>
+
+        <span>DATASET PENELITIAN</span>
+
+        <h2>📁 Informasi Dataset</h2>
+
+      </div>
+
+      <div class="section-icon">
+        📋
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="info-list">
+
+        <div class="info-item">
+
+          <span>Jumlah Data Siswa</span>
+
+          <b>{{jumlahData}}</b>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <span>Jumlah Cluster (K)</span>
+
+          <b>{{jumlahCluster}}</b>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <span>Metode</span>
+
+          <b>K-Means Clustering</b>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <span>Jarak</span>
+
+          <b>Euclidean Distance</b>
+
+        </div>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- TOMBOL PROSES -->
+  <!-- ======================= -->
+
+  <div class="process-area">
+
+    <ion-button
+      expand="block"
+      color="success"
+      (click)="prosesClustering()">
+
+      📊 PROSES K-MEANS
+
+    </ion-button>
+
+
+    <ion-button
+      expand="block"
+      color="medium"
+      (click)="resetProses()">
+
+      🔄 RESET
+
+    </ion-button>
+
+  </div>
+
+
+  <!-- ======================= -->
+  <!-- INFORMASI ITERASI -->
+  <!-- ======================= -->
+
+  <div
+    class="section-label"
+    *ngIf="jumlahIterasi > 0">
+
+    INFORMASI PROSES
+
+  </div>
+
+
+  <ion-card
+    class="result-card iteration-card"
+    *ngIf="jumlahIterasi > 0">
+
+
+    <div class="section-header iteration-header">
+
+      <div>
+
+        <span>PROSES ALGORITMA</span>
+
+        <h2>🔁 Informasi Iterasi</h2>
+
+      </div>
+
+      <div class="section-icon">
+        🔄
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="iteration-info">
+
+        <p>
+          Algoritma berhenti pada iterasi ke-
+          <b>{{jumlahIterasi}}</b>
+        </p>
+
+        <p>
+
+          <b>Alasan Berhenti:</b>
+
+          Nilai centroid pada iterasi terakhir sama dengan centroid sebelumnya.
+
+        </p>
+
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <ion-grid>
+
+          <ion-row class="table-header">
+
+            <ion-col>Iterasi</ion-col>
+
+            <ion-col>Jumlah C1</ion-col>
+
+            <ion-col>Jumlah C2</ion-col>
+
+            <ion-col>Jumlah C3</ion-col>
+
+            <ion-col>Status</ion-col>
+
+          </ion-row>
+
+
+          <ion-row *ngFor="let i of riwayatIterasi">
+
+            <ion-col>{{i.iterasi}}</ion-col>
+
+            <ion-col>{{i.jumlahCluster1}}</ion-col>
+
+            <ion-col>{{i.jumlahCluster2}}</ion-col>
+
+            <ion-col>{{i.jumlahCluster3}}</ion-col>
+
+            <ion-col>{{i.status}}</ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- CENTROID AWAL -->
+  <!-- ======================= -->
+
+  <ion-card
+    class="result-card centroid-awal-card"
+    *ngIf="centroidAwal.length > 0">
+
+
+    <div class="section-header purple-header">
+
+      <div>
+
+        <span>INISIALISASI</span>
+
+        <h2>🎯 Centroid Awal</h2>
+
+      </div>
+
+      <div class="section-icon">
+        🎯
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="table-wrapper">
+
+        <ion-grid>
+
+          <ion-row class="table-header">
+
+            <ion-col size="2">
+              Cluster
+            </ion-col>
+
+            <ion-col size="10">
+              Nilai Centroid per Mapel
+            </ion-col>
+
+          </ion-row>
+
+
+          <ion-row
+            *ngFor="let c of centroidAwal; let i=index">
+
+            <ion-col size="2">
+              C{{i+1}}
+            </ion-col>
+
+            <ion-col size="10">
+
+              <span
+                *ngFor="let nilai of c; let j = index">
+
+                {{namaMapel[j]}}: {{nilai}}
+
+                <span *ngIf="j < c.length - 1">
+                  ,
+                </span>
+
+              </span>
+
+            </ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- RIWAYAT ITERASI -->
+  <!-- ======================= -->
+
+  <ion-card
+    class="result-card history-card"
+    *ngIf="riwayatIterasi.length > 0">
+
+
+    <div class="section-header teal-header">
+
+      <div>
+
+        <span>PERKEMBANGAN PROSES</span>
+
+        <h2>📈 Riwayat Iterasi</h2>
+
+      </div>
+
+      <div class="section-icon">
+        📈
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="table-wrapper">
+
+        <ion-grid>
+
+          <ion-row class="table-header">
+
+            <ion-col>Iterasi</ion-col>
+
+            <ion-col>Cluster 1</ion-col>
+
+            <ion-col>Cluster 2</ion-col>
+
+            <ion-col>Cluster 3</ion-col>
+
+          </ion-row>
+
+
+          <ion-row *ngFor="let i of riwayatIterasi">
+
+            <ion-col>{{i.iterasi}}</ion-col>
+
+            <ion-col>{{i.jumlahCluster1}} siswa</ion-col>
+
+            <ion-col>{{i.jumlahCluster2}} siswa</ion-col>
+
+            <ion-col>{{i.jumlahCluster3}} siswa</ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- CENTROID AKHIR -->
+  <!-- ======================= -->
+
+  <ion-card
+    class="result-card final-centroid-card"
+    *ngIf="centroidAkhir.length > 0">
+
+
+    <div class="section-header green-header">
+
+      <div>
+
+        <span>HASIL KONVERGENSI</span>
+
+        <h2>✅ Centroid Akhir</h2>
+
+      </div>
+
+      <div class="section-icon">
+        ✅
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="table-wrapper">
+
+        <ion-grid>
+
+          <ion-row class="table-header">
+
+            <ion-col size="2">
+              Cluster
+            </ion-col>
+
+            <ion-col size="10">
+              Nilai Centroid per Mapel
+            </ion-col>
+
+          </ion-row>
+
+
+          <ion-row
+            *ngFor="let c of centroidAkhir; let i=index">
+
+            <ion-col size="2">
+              C{{i+1}}
+            </ion-col>
+
+            <ion-col size="10">
+
+              <span
+                *ngFor="let nilai of c; let j = index">
+
+                {{namaMapel[j]}}: {{nilai}}
+
+                <span *ngIf="j < c.length - 1">
+                  ,
+                </span>
+
+              </span>
+
+            </ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- PERHITUNGAN JARAK -->
+  <!-- ======================= -->
+
+  <ion-card
+    class="result-card distance-card"
+    *ngIf="dataJarak.length > 0">
+
+
+    <div class="section-header orange-header">
+
+      <div>
+
+        <span>PERHITUNGAN ALGORITMA</span>
+
+        <h2>📐 Perhitungan Jarak</h2>
+
+      </div>
+
+      <div class="section-icon">
+        📐
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="distance-title">
+        Euclidean Distance
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <ion-grid>
+
+          <ion-row class="table-header">
+
+            <ion-col>Nama</ion-col>
+
+            <ion-col>C1</ion-col>
+
+            <ion-col>C2</ion-col>
+
+            <ion-col>C3</ion-col>
+
+            <ion-col>Cluster</ion-col>
+
+          </ion-row>
+
+
+          <ion-row *ngFor="let d of dataJarak">
+
+            <ion-col>{{d.nama}}</ion-col>
+
+            <ion-col>{{d.c1}}</ion-col>
+
+            <ion-col>{{d.c2}}</ion-col>
+
+            <ion-col>{{d.c3}}</ion-col>
+
+            <ion-col>{{d.cluster}}</ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- HASIL PENGELOMPOKAN -->
+  <!-- ======================= -->
+
+  <div
+    class="section-label"
+    *ngIf="hasilCluster.length > 0">
+
+    HASIL ANALISIS CLUSTER
+
+  </div>
+
+
+  <ion-card
+    class="result-card cluster-result-card"
+    *ngIf="hasilCluster.length > 0">
+
+
+    <div class="section-header blue-header">
+
+      <div>
+
+        <span>HASIL AKHIR</span>
+
+        <h2>📊 Hasil Pengelompokan</h2>
+
+      </div>
+
+      <div class="section-icon">
+        📊
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <div class="table-wrapper">
+
+        <ion-grid>
+
+          <ion-row class="table-header">
+
+            <ion-col size="2">
+              NISN
+            </ion-col>
+
+            <ion-col size="3">
+              Nama
+            </ion-col>
+
+            <ion-col size="1">
+              C1
+            </ion-col>
+
+            <ion-col size="1">
+              C2
+            </ion-col>
+
+            <ion-col size="1">
+              C3
+            </ion-col>
+
+            <ion-col size="2">
+              Kategori
+            </ion-col>
+
+            <ion-col size="2">
+              Rekomendasi
+            </ion-col>
+
+          </ion-row>
+
+
+          <ion-row *ngFor="let s of hasilCluster">
+
+            <ion-col size="2">
+              {{s.nisn}}
+            </ion-col>
+
+            <ion-col size="3">
+              {{s.nama}}
+            </ion-col>
+
+
+            <ion-col size="1" class="tengah">
+
+              <span *ngIf="s.cluster === 1">
+                ✓
+              </span>
+
+            </ion-col>
+
+
+            <ion-col size="1" class="tengah">
+
+              <span *ngIf="s.cluster === 2">
+                ✓
+              </span>
+
+            </ion-col>
+
+
+            <ion-col size="1" class="tengah">
+
+              <span *ngIf="s.cluster === 3">
+                ✓
+              </span>
+
+            </ion-col>
+
+
+            <ion-col size="2">
+
+              {{s.kategori}}
+
+            </ion-col>
+
+
+            <ion-col size="2">
+
+              {{getRekomendasi(s.kategori)}}
+
+            </ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+</ion-content>

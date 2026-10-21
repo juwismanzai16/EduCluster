@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+
+      <ion-back-button
+        defaultHref="/tabs/tab1">
+      </ion-back-button>
+
+    </ion-buttons>
+
+    <ion-title>
+      Login
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="login-container">
+
+    <!-- =========================
+         HEADER LOGIN
+    ========================= -->
+
+    <div class="login-header">
+
+      <div class="login-icon">
+        🔐
+      </div>
+
+      <h1>
+        Login
+      </h1>
+
+
+    </div>
+
+
+    <!-- =========================
+         FORM LOGIN
+    ========================= -->
+
+    <ion-card class="login-card">
+
+      <ion-card-content>
+
+        <!-- USERNAME -->
+
+        <ion-item>
+
+          <ion-label position="stacked">
+            Username
+          </ion-label>
+
+          <ion-input
+            type="text"
+            placeholder="Masukkan username"
+            [(ngModel)]="username">
+          </ion-input>
+
+        </ion-item>
+
+
+        <!-- PASSWORD -->
+
+        <ion-item>
+
+          <ion-label position="stacked">
+            Password
+          </ion-label>
+
+          <ion-input
+            type="password"
+            placeholder="Masukkan password"
+            [(ngModel)]="password">
+          </ion-input>
+
+        </ion-item>
+
+
+        <!-- TOMBOL LOGIN -->
+
+        <ion-button
+          expand="block"
+          class="btn-login"
+          color="success"
+          (click)="login()">
+
+          LOGIN
+
+        </ion-button>
+
+        <!-- LUPA PASSWORD -->
+
+<div class="forgot-password">
+  <a routerLink="/lupa-password">
+    Lupa Password?
+  </a>
+</div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+
+    <!-- =========================
+         INFORMASI LOGIN
+    ========================= -->
+
+    <div class="login-info">
+
+      <p>
+        🔒 Akses ini digunakan untuk melindungi
+        pengelolaan data siswa.
+      </p>
+
+    </div>
+
+  </div>
+
+</ion-content>

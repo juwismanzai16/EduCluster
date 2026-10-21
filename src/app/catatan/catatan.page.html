@@ -1,0 +1,1225 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+
+      <ion-back-button
+        defaultHref="/tabs/tab1">
+      </ion-back-button>
+
+    </ion-buttons>
+
+
+    <ion-title>
+      Catatan EduCluster
+    </ion-title>
+
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <!-- HEADER -->
+
+  <div class="hero-section">
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        CATATAN DI BALIK LAYAR
+      </span>
+
+
+      <h1>
+        Di Balik EduCluster
+      </h1>
+
+
+      <p>
+        Sebuah ruang kecil yang menyimpan perjalanan,
+        proses, dan cerita yang tidak selalu terlihat.
+      </p>
+
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- CARD 1 -->
+
+  <ion-card 
+    class="note-card"
+    (click)="bukaCatatan(1)">
+
+
+    <ion-card-header>
+
+      <div class="note-header">
+
+        <div class="icon-box">
+          🌱
+        </div>
+
+
+        <div>
+
+          <h2>
+            Sebuah Awal yang Sederhana
+          </h2>
+
+          <span>
+            Dari ide menjadi sebuah karya
+          </span>
+
+        </div>
+
+      </div>
+
+    </ion-card-header>
+
+
+
+    <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 1">
+
+        <p>
+          Setiap sesuatu yang besar biasanya
+          dimulai dari sebuah hal kecil.
+        </p>
+
+
+        <p>
+          EduCluster berawal dari sebuah ide sederhana:
+          bagaimana sebuah penelitian tidak hanya berhenti
+          dalam bentuk teori, tetapi dapat diwujudkan
+          menjadi sesuatu yang dapat digunakan.
+        </p>
+
+
+        <p>
+          Dari data, algoritma, dan berbagai proses
+          pembelajaran, perlahan terbentuk sebuah sistem
+          yang memiliki tujuan untuk membantu memahami
+          pola prestasi siswa.
+        </p>
+
+
+        <p>
+          Perjalanan ini bukan hanya tentang membuat
+          sebuah aplikasi, tetapi tentang bagaimana
+          sebuah ide kecil dapat berkembang menjadi
+          sebuah karya.
+        </p>
+
+
+      </div>
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+
+
+
+
+
+  <!-- CARD 2 -->
+
+  <ion-card 
+    class="note-card"
+    (click)="bukaCatatan(2)">
+
+
+    <ion-card-header>
+
+
+      <div class="note-header">
+
+        <div class="icon-box">
+          💻
+        </div>
+
+
+        <div>
+
+          <h2>
+            Di Balik Layar
+          </h2>
+
+          <span>
+            Proses yang tidak terlihat
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+    </ion-card-header>
+
+
+
+    <ion-card-content>
+    <div class="note-text" [class.open]="catatanTerbuka === 2">
+
+
+        <p>
+          Tidak semua proses terlihat pada hasil akhir.
+        </p>
+
+
+        <p>
+          Di balik tampilan yang sederhana,
+          terdapat banyak percobaan, kesalahan,
+          perbaikan, dan pembelajaran yang harus dilewati.
+        </p>
+
+
+        <p>
+          Ada bagian yang berjalan sesuai rencana,
+          ada juga bagian yang membutuhkan waktu
+          lebih lama untuk dipahami.
+        </p>
+
+
+        <p>
+          Namun setiap proses tersebut menjadi bagian
+          yang membentuk perjalanan EduCluster hingga
+          dapat berjalan seperti sekarang.
+        </p>
+
+
+      </div>
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+
+
+
+
+
+  <!-- CARD 3 -->
+
+  <ion-card 
+    class="note-card"
+    (click)="bukaCatatan(3)">
+
+
+    <ion-card-header>
+
+
+      <div class="note-header">
+
+        <div class="icon-box">
+          🌊
+        </div>
+
+
+        <div>
+
+          <h2>
+            Laut yang Belajar Tenang
+          </h2>
+
+          <span>
+            Sebuah catatan kecil
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+    </ion-card-header>
+
+
+
+    <ion-card-content>
+    <div class="note-text" [class.open]="catatanTerbuka === 3">
+
+
+        <p>
+          Malam ini laut terlihat lebih tenang
+          dari biasanya.
+        </p>
+
+
+        <p>
+          Entah karena ombaknya mulai lelah,
+          atau karena akhirnya tidak lagi sibuk
+          menjelaskan mengapa ia tetap kembali
+          ke pantai yang sama.
+        </p>
+
+
+        <p>
+          Mungkin beberapa hal memang tidak pernah selesai.
+        </p>
+
+
+        <p>
+          Hanya hati yang perlahan belajar hidup
+          berdampingan dengannya.
+        </p>
+
+
+      </div>
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+
+
+
+
+
+  <!-- CARD 4 -->
+
+  <ion-card 
+    class="note-card"
+    (click)="bukaCatatan(4)">
+
+
+    <ion-card-header>
+
+
+      <div class="note-header">
+
+        <div class="icon-box">
+          🌙
+        </div>
+
+
+        <div>
+
+          <h2>
+            Hal yang Tidak Terlihat
+          </h2>
+
+          <span>
+            Cerita di balik sebuah perjalanan
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+    </ion-card-header>
+
+
+
+   <ion-card-content>
+   <div class="note-text" [class.open]="catatanTerbuka === 4">
+
+
+
+        <p>
+          Ada banyak cerita yang tidak pernah
+          tertulis dalam sebuah karya.
+        </p>
+
+
+        <p>
+          Tentang waktu yang berjalan,
+          pikiran yang penuh pertanyaan,
+          dan langkah kecil yang tetap dipilih
+          meskipun terkadang terasa berat.
+        </p>
+
+
+        <p>
+          Namun mungkin memang begitu sebuah
+          perjalanan terbentuk.
+        </p>
+
+
+        <p>
+          Bukan hanya dari hasil akhirnya,
+          tetapi dari semua hal yang dilewati
+          sebelum sampai di sana.
+        </p>
+
+
+      </div>
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+<!-- CARD 5 -->
+
+<ion-card 
+  class="note-card"
+  (click)="bukaCatatan(5)">
+
+
+  <ion-card-header>
+
+    <div class="note-header">
+
+      <div class="icon-box">
+        ✨
+      </div>
+
+
+      <div>
+
+        <h2>
+          Di Antara Jatuh dan Tetap Berdiri
+        </h2>
+
+        <span>
+          Sebuah proses yang tidak terlihat
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </ion-card-header>
+
+
+
+
+  <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 5">
+
+
+      <p>
+        Proses ini tidaklah mudah.
+      </p>
+
+
+      <p>
+        Seperti beberapa kata motivasi yang sempat
+        terbaca, perjalanan tugas akhir terkadang
+        memiliki dua kemungkinan: jatuh cinta atau
+        patah hati.
+      </p>
+
+
+      <p>
+        Namun sebenarnya makna dari kata "cinta"
+        bukanlah tentang cinta yang terlihat seperti
+        biasanya. Kata tersebut hanyalah sebuah
+        ilustrasi tentang sesuatu yang sangat berarti.
+      </p>
+
+
+      <p>
+        Tentang sebuah pertanyaan:
+        sanggupkah seseorang tetap maju atau memilih
+        mundur ketika sesuatu yang berarti harus
+        bertentangan dengan keadaan yang sedang
+        dialami?
+      </p>
+
+
+      <p>
+        Dan ya, itu benar-benar terjadi.
+        Sesuatu yang sebelumnya terasa biasa saja,
+        dapat berubah menjadi sesuatu yang sangat
+        berarti ketika berada di tahap akhir perjalanan.
+      </p>
+
+
+      <p>
+        Hal kecil yang seharusnya hanya sebuah
+        goresan, terkadang terasa seperti luka yang
+        membakar ruang paling dingin dalam hati.
+      </p>
+
+
+      <p>
+        Hanya beberapa orang yang mampu melewati
+        proses seperti itu.
+        Dan jangan salah...
+        pembuat EduCluster sudah menjalani itu. 🤣
+      </p>
+
+
+      <p>
+        Gelisah tanpa sebab, rasa cemas,
+        pikiran yang penuh kemungkinan,
+        hingga rasa takut terhadap hal-hal
+        yang belum tentu terjadi, semuanya pernah
+        menjadi bagian dari perjalanan ini.
+      </p>
+
+
+      <p>
+        Melihat perubahan kecil di sekitar,
+        langsung merasa harus waspada.
+        Nada bicara seseorang berubah,
+        lalu muncul pertanyaan:
+      </p>
+
+
+      <p>
+        "Apakah aku melakukan kesalahan?"
+      </p>
+
+
+      <p>
+        "Apa yang harus aku lakukan?"
+      </p>
+
+
+      <p>
+        Padahal terkadang, seseorang hanya sedang
+        menjalani harinya dengan suasana hati
+        yang berbeda.
+      </p>
+
+
+      <p>
+        Tapi itulah prosesnya...
+      </p>
+
+
+      <p>
+        Dan kini aplikasi ini telah berada pada tahap
+        "Selesai".
+      </p>
+
+
+      <p>
+        Semoga yang selesai hanya aplikasinya,
+        sedangkan perjalanan pembuatnya,
+        dan orang-orang yang menjadi support system
+        di sekitarnya, masih memiliki banyak cerita
+        yang akan terus berjalan. 😊
+      </p>
+
+
+      <p>
+        <b>
+          16 Juli 2026
+        </b>
+      </p>
+
+
+      <p>
+        22 tahun perjalanan seorang pembuat.
+      </p>
+
+
+      <p>
+        Hiduplah lebih lama.
+        Jadilah seseorang yang lebih dewasa.
+        Sayangi diri sendiri,
+        dan teruslah berkarya.
+      </p>
+
+
+      <p>
+        <b>
+          PI'TI 🌷
+        </b>
+      </p>
+
+
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>
+
+<!-- CARD 6 -->
+
+<ion-card 
+  class="note-card"
+  (click)="bukaCatatan(6)">
+
+
+  <ion-card-header>
+
+    <div class="note-header">
+
+      <div class="icon-box">
+        🌧
+      </div>
+
+      <div>
+
+        <h2>
+          Langit yang Tidak Selalu Cerah
+        </h2>
+
+        <span>
+          Tentang hari-hari yang sulit dijelaskan
+        </span>
+
+      </div>
+
+    </div>
+
+  </ion-card-header>
+
+
+  <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 6">
+
+      <p>
+        Ada masa ketika langit terlihat biasa saja,
+        tetapi di dalamnya tersimpan banyak hal
+        yang tidak terlihat oleh siapa pun.
+      </p>
+
+
+      <p>
+        Tidak semua lelah datang dari perjalanan
+        yang panjang.
+        Terkadang ia hadir dari pikiran yang terlalu
+        banyak berjalan, dari pertanyaan yang tidak
+        menemukan jawaban, dan dari keinginan untuk
+        tetap terlihat baik-baik saja.
+      </p>
+
+
+      <p>
+        Namun mungkin, langit tidak selalu harus cerah
+        agar sebuah perjalanan tetap dilanjutkan.
+      </p>
+
+
+      <p>
+        Sebab terkadang, awan hanya datang untuk
+        mengajarkan bahwa cahaya tidak pernah
+        benar-benar hilang.
+      </p>
+
+
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>
+
+
+
+
+
+<!-- CARD 7 -->
+
+<ion-card 
+  class="note-card"
+  (click)="bukaCatatan(7)">
+
+
+  <ion-card-header>
+
+    <div class="note-header">
+
+      <div class="icon-box">
+        🌊
+      </div>
+
+
+      <div>
+
+        <h2>
+          Ombak yang Datang Kembali
+        </h2>
+
+        <span>
+          Tentang sesuatu yang pernah menguji keteguhan hati
+        </span>
+
+      </div>
+
+    </div>
+
+  </ion-card-header>
+
+
+ <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 7">
+
+      <p>
+        Ada ombak yang datang hanya sekali,
+        lalu pergi tanpa meninggalkan banyak cerita.
+      </p>
+
+
+      <p>
+        Namun ada juga ombak yang kembali datang,
+        membawa pertanyaan yang sama,
+        rasa yang sama,
+        dan pelajaran yang belum sepenuhnya dipahami.
+      </p>
+
+
+      <p>
+        Dahulu mungkin seseorang akan berusaha
+        melawan setiap gelombang.
+      </p>
+
+
+      <p>
+        Tetapi seiring waktu, ia mulai mengerti
+        bahwa tidak semua ombak harus dikalahkan.
+      </p>
+
+
+      <p>
+        Beberapa hanya perlu dilewati.
+      </p>
+
+
+      <p>
+        Karena terkadang, yang membuat seseorang
+        menjadi lebih kuat bukan ketika laut menjadi
+        tenang, tetapi ketika ia belajar tetap berdiri
+        meskipun gelombang masih datang.
+      </p>
+
+
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>
+
+
+
+
+
+<!-- CARD 8 -->
+
+<ion-card 
+  class="note-card"
+  (click)="bukaCatatan(8)">
+
+
+  <ion-card-header>
+
+    <div class="note-header">
+
+
+      <div class="icon-box">
+        🌙
+      </div>
+
+
+      <div>
+
+        <h2>
+          Ketika Diam Mulai Berbicara
+        </h2>
+
+        <span>
+          Memahami sesuatu yang tidak selalu terlihat
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </ion-card-header>
+
+
+  <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 8">
+
+      <p>
+        Ada hal-hal yang datang tanpa pernah
+        benar-benar diminta, lalu perlahan mengubah
+        cara seseorang melihat dunia.
+      </p>
+
+
+      <p>
+        Bukan tentang berapa lama langkah ini telah
+        berjalan, melainkan tentang berapa banyak hal
+        yang akhirnya mulai dimengerti.
+      </p>
+
+
+      <p>
+        Tak semua yang hadir meninggalkan nama.
+        Ada yang hanya menyisakan perubahan kecil
+        pada cara seseorang memahami perjalanan.
+      </p>
+
+
+      <p>
+        Dan mungkin, memang begitu cara beberapa hal
+        menemukan maknanya.
+      </p>
+
+
+      <p>
+        Aku tidak ingin lagi tergesa-gesa memberi arti.
+        Sebab mungkin, menjadi dewasa adalah belajar
+        menerima bahwa tidak semua hal harus segera
+        dijelaskan.
+      </p>
+
+
+      <p>
+        Jika hari ini aku memilih diam,
+        bukan berarti tak ada yang terasa.
+        Mungkin aku hanya sedang belajar memahami
+        sesuatu dengan caraku sendiri.
+      </p>
+
+
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>
+
+
+  
+
+  <!-- CARD 9 -->
+
+<ion-card
+  class="note-card"
+  (click)="bukaCatatan(9)">
+
+  <ion-card-header>
+
+    <div class="note-header">
+
+      <div class="icon-box">
+        🍃
+      </div>
+
+      <div>
+
+        <h2>
+          Mercusuar Tak Pernah Memanggil
+        </h2>
+
+        <span>
+          Ada yang terasa hadir tanpa pernah benar-benar dimiliki
+        </span>
+
+      </div>
+
+    </div>
+
+  </ion-card-header>
+
+
+  <ion-card-content>
+
+    <div class="note-text" [class.open]="catatanTerbuka === 9">
+
+      <p>
+        Ada hal-hal yang datang begitu biasa,
+        sampai seseorang tidak pernah menyadari
+        bahwa kehadirannya perlahan sedang
+        mengubah banyak hal.
+      </p>
+
+      <p>
+        Ia tidak membawa janji,
+        tidak pula meminta untuk dipahami.
+        Hanya hadir sebagaimana mestinya,
+        seolah memang sedang menjalani
+        bagian kecil dari kehidupannya sendiri.
+      </p>
+
+      <p>
+        Namun entah mengapa,
+        setelah semuanya berlalu,
+        yang berubah justru cara seseorang
+        memandang hari-harinya.
+      </p>
+
+      <p>
+        Ada waktu ketika senyum yang sederhana
+        terasa cukup untuk membuat satu hari
+        menjadi sedikit lebih ringan.
+        Ada pula hari ketika diam yang singkat
+        mampu melahirkan begitu banyak pertanyaan
+        yang bahkan tidak pernah berani diucapkan.
+      </p>
+
+      <p>
+        Mungkin memang tidak pernah ada
+        sesuatu yang benar-benar terjadi.
+        Tidak ada cerita yang dimulai,
+        tidak ada pula kisah yang harus diakhiri.
+      </p>
+
+      <p>
+        Hanya ada sebuah pertemuan kecil
+        yang perlahan mengajarkan bahwa
+        seseorang bisa menjadi berarti
+        bahkan tanpa pernah meminta
+        untuk menjadi bagian dari cerita.
+      </p>
+
+      <p>
+        Lucunya,
+        semakin ingin dijelaskan,
+        semakin sulit menemukan kata
+        yang benar-benar mampu mewakilinya.
+      </p>
+
+      <p>
+        Karena setiap kali mencoba memberi nama,
+        rasanya selalu ada bagian
+        yang tidak ingin dijelaskan.
+        Seolah cerita ini memang lebih nyaman
+        tinggal sebagai sebuah rahasia
+        yang dipahami oleh waktu.
+      </p>
+
+      <p>
+        Mungkin ia tidak pernah tahu
+        bahwa tanpa sengaja,
+        ia pernah menjadi alasan
+        mengapa seseorang belajar
+        melihat dunia dengan cara
+        yang sedikit berbeda.
+      </p>
+
+      <p>
+        Mungkin ia juga tidak pernah tahu,
+        bahwa beberapa halaman dalam perjalanan ini
+        diam-diam menyimpan jejak
+        yang tidak pernah ditulis
+        menggunakan namanya.
+      </p>
+
+      <p>
+        Dan mungkin...
+        memang seharusnya begitu.
+      </p>
+
+      <p>
+        Sebab tidak semua orang
+        ditakdirkan untuk menjadi tokoh utama
+        dalam sebuah cerita.
+        Ada yang hanya hadir
+        sebagai alasan mengapa
+        seseorang akhirnya tumbuh
+        menjadi pribadi yang berbeda.
+      </p>
+
+      <p>
+        Jadi bila suatu hari
+        ada yang bertanya,
+        "Siapa yang dimaksud
+        dalam halaman ini?"
+      </p>
+
+      <p>
+        Barangkali jawabannya
+        memang tidak pernah ada.
+        Karena beberapa nama
+        memang lebih indah
+        ketika disimpan di dalam hati,
+        bukan di dalam tulisan. 
+
+      </p>
+
+    </div>
+
+  </ion-card-content>
+
+</ion-card>
+
+
+
+
+
+<!-- CARD 9 -->
+
+<ion-card 
+  class="note-card"
+  (click)="bukaCatatan(10)">
+
+
+  <ion-card-header>
+
+
+    <div class="note-header">
+
+
+      <div class="icon-box">
+        🌊🏔
+      </div>
+
+
+      <div>
+
+
+        <h2>
+          Antara Laut dan Gunung
+        </h2>
+
+
+        <span>
+          Sebuah percakapan tentang perjalanan
+        </span>
+
+
+      </div>
+
+
+    </div>
+
+
+  </ion-card-header>
+
+  <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 10">
+
+
+      <p>
+        <b>A:</b><br>
+        Aku sedang memandangi laut,
+        memberi ketenangan...
+        tapi aku juga sedang mendaki gunung.
+      </p>
+
+
+      <p>
+        Dua-duanya sangat indah,
+        dan aku sulit memilih.
+      </p>
+
+
+      <p>
+        <b>B:</b><br>
+        Bukankah kamu suka laut
+        karena terlihat tenang?
+      </p>
+
+
+      <p>
+        <b>A:</b><br>
+        Iya. Tenang...
+        tapi memiliki kedalaman.
+      </p>
+
+
+      <p>
+        <b>B:</b><br>
+        Lalu gunung?
+      </p>
+
+
+      <p>
+        <b>A:</b><br>
+        Gunung tidak pernah menjanjikan ketenangan.
+        Ia hanya mengajarkan bagaimana caranya
+        tetap melangkah meski napas mulai kehilangan irama.
+      </p>
+
+
+      <p>
+        <b>B:</b><br>
+        Jadi, mana yang ingin kamu pilih?
+      </p>
+
+
+      <p>
+        <b>A:</b><br>
+        Mungkin tidak ada yang harus dipilih.
+      </p>
+
+
+      <p>
+        Karena ada hal-hal yang cukup dipandang
+        untuk menenangkan...
+        dan ada hal-hal yang harus didaki
+        untuk benar-benar dipahami.
+      </p>
+
+
+      <p>
+        <b>B:</b><br>
+        Kedengarannya seperti kamu sudah tahu jawabannya.
+      </p>
+
+
+      <p>
+        <b>A:</b><br>
+        Belum.
+      </p>
+
+
+      <p>
+        Tapi mungkin, tidak semua perjalanan
+        memang dimulai dengan tahu
+        akan berakhir di mana.
+      </p>
+
+
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>
+
+
+
+
+
+<!-- CARD 10 -->
+
+<ion-card 
+  class="note-card"
+  (click)="bukaCatatan(11)">
+
+
+  <ion-card-header>
+
+
+    <div class="note-header">
+
+
+      <div class="icon-box">
+        🌌
+      </div>
+
+
+      <div>
+
+
+        <h2>
+          Di Balik Halaman Berikutnya
+        </h2>
+
+
+        <span>
+          Tentang cerita yang masih menunggu untuk ditulis
+        </span>
+
+
+      </div>
+
+
+    </div>
+
+
+  </ion-card-header>
+
+
+
+  <ion-card-content>
+  <div class="note-text" [class.open]="catatanTerbuka === 11">
+
+
+      <p>
+        Tidak semua cerita memiliki akhir ketika
+        satu bagian telah selesai.
+      </p>
+
+
+      <p>
+        Terkadang, sebuah perjalanan hanya sedang
+        berhenti sebentar untuk melihat kembali
+        langkah yang sudah dilewati.
+      </p>
+
+
+      <p>
+        Ada banyak hal yang belum diketahui.
+        Ada banyak jalan yang belum ditemukan.
+        Dan ada banyak cerita yang masih menunggu
+        waktunya untuk dituliskan.
+      </p>
+
+
+      <p>
+        Mungkin hari ini seseorang masih belajar
+        memahami dirinya sendiri, masih mencari arah,
+        dan masih mencoba menjadi lebih baik dari
+        sebelumnya.
+      </p>
+
+
+      <p>
+        Sebab bertumbuh bukan tentang menjadi
+        sempurna dalam satu malam.
+      </p>
+
+
+      <p>
+        Tetapi tentang tetap berjalan,
+        meskipun perlahan.
+      </p>
+
+
+      <p>
+        Karena setiap halaman yang pernah dilewati
+        akan selalu menjadi bagian dari cerita yang
+        membentuk seseorang.
+      </p>
+
+
+      <p>
+        Dan halaman berikutnya...
+        masih menunggu untuk ditulis. 🌱
+      </p>
+
+
+    </div>
+
+
+  </ion-card-content>
+
+
+</ion-card>
+
+
+  <div class="footer">
+
+    <h3>
+      EduCluster
+    </h3>
+
+    <p>
+      Sebuah cerita kecil di balik sebuah karya
+    </p>
+
+  </div>
+
+
+</ion-content>

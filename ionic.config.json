@@ -1,0 +1,7 @@
+{
+  "name": "EduCluster",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

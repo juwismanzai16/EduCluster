@@ -1,0 +1,411 @@
+/* =================================
+   GLOBAL
+================================= */
+
+ion-content {
+  --background: #f5f7f8;
+}
+
+
+/* =================================
+   HEADER EDUCLUSTER
+================================= */
+
+ion-toolbar {
+  --background: #ffffff;
+
+  --border-color: transparent;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.judul-app {
+  color: #00897B;
+
+  font-size: 27px;
+
+  font-weight: bold;
+}
+
+
+/* =================================
+   HERO SECTION
+================================= */
+
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    #00897B,
+    #26A69A
+  );
+
+  padding: 28px 22px 32px;
+
+  border-radius: 0 0 28px 28px;
+
+  color: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(0, 137, 123, 0.25);
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.label-hero {
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+}
+
+.hero-section h1 {
+  font-size: 29px;
+
+  font-weight: bold;
+
+  margin: 0 0 12px;
+}
+
+.deskripsi-hero {
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  margin: 0;
+}
+
+
+/* =================================
+   SECTION LABEL
+================================= */
+
+.section-label {
+  margin: 8px 20px 10px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  color: #78909C;
+}
+
+
+/* =================================
+   CARD UMUM
+================================= */
+
+ion-card {
+  margin: 0 0 18px;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+
+  overflow: hidden;
+}
+
+
+/* =================================
+   HEADER CARD
+================================= */
+
+.summary-header,
+.section-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 14px 16px;
+}
+
+.summary-header span,
+.section-header span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  opacity: 0.75;
+}
+
+.summary-header h2,
+.section-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.section-icon {
+  font-size: 27px;
+
+  opacity: 0.9;
+}
+
+
+/* =================================
+   HEADER WARNA CARD
+================================= */
+
+.summary-header {
+  background: #E0F2F1;
+
+  border-left: 5px solid #00897B;
+
+  color: #00695C;
+}
+
+.tujuan-header {
+  background: #E8F5E9;
+
+  border-left: 5px solid #43A047;
+
+  color: #2E7D32;
+}
+
+.data-header {
+  background: #E3F2FD;
+
+  border-left: 5px solid #1E88E5;
+
+  color: #1565C0;
+}
+
+.batasan-header {
+  background: #FFF3E0;
+
+  border-left: 5px solid #FB8C00;
+
+  color: #E65100;
+}
+
+
+/* =================================
+   CARD CONTENT
+================================= */
+
+ion-card-content {
+  padding: 14px 16px;
+}
+
+
+/* =================================
+   STATISTIK
+================================= */
+
+.statistik-container {
+  display: flex;
+
+  gap: 14px;
+}
+
+.stat-card {
+  flex: 1;
+
+  background: #f8fafb;
+
+  border-radius: 10px;
+
+  padding: 12px;
+
+  text-align: center;
+}
+
+.stat-icon {
+  font-size: 25px;
+
+  margin-bottom: 5px;
+}
+
+.stat-card h2 {
+  margin: 0;
+
+  color: #00897B;
+
+  font-size: 27px;
+
+  font-weight: bold;
+}
+
+.stat-card p {
+  margin: 3px 0 0;
+
+  color: #607D8B;
+
+  font-size: 13px;
+}
+
+
+/* =================================
+   ISI INFORMASI
+================================= */
+
+.info-card ion-card-content p {
+  margin: 0;
+
+  color: #455A64;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =================================
+   TOMBOL UTAMA
+================================= */
+
+.box-tengah {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 25px;
+}
+
+.btn-mulai {
+  --border-radius: 12px;
+
+  font-weight: bold;
+
+  letter-spacing: 0.3px;
+
+  --padding-start: 24px;
+
+  --padding-end: 24px;
+
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.arrow {
+  font-size: 20px;
+
+  margin-left: 8px;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+  margin-top: 38px;
+
+  padding: 20px 20px 28px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer-title {
+  color: #00897B;
+
+  font-size: 15px;
+
+  font-weight: bold;
+}
+
+.footer-title span {
+  color: #999;
+
+  font-size: 12px;
+
+  font-weight: normal;
+}
+
+.footer-desc {
+  font-size: 11px;
+
+  color: #999;
+}
+
+.copyright {
+  color: #aaa;
+
+  font-size: 11px;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+  .hero-section {
+    padding: 24px 18px 28px;
+  }
+
+  .hero-section h1 {
+    font-size: 25px;
+  }
+
+  .deskripsi-hero {
+    font-size: 13px;
+  }
+
+  .summary-header h2,
+  .section-header h2 {
+    font-size: 16px;
+  }
+
+  ion-card-content {
+    padding: 12px;
+  }
+
+}
+
+/* =========================
+   TOMBOL INFO
+========================= */
+
+.info-button {
+
+  --background: #E0F2F1;
+  --color: #00897B;
+
+  --border-radius: 50%;
+
+  width: 42px;
+  height: 42px;
+
+  margin-right: 8px;
+
+  box-shadow: 0 2px 8px rgba(0, 137, 123, 0.25);
+
+}
+
+.info-button ion-icon {
+
+  font-size: 26px;
+
+}

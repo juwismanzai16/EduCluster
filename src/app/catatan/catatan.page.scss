@@ -1,0 +1,329 @@
+ion-toolbar{
+
+  --background:#ffffff;
+
+}
+
+
+ion-title{
+
+  color:#00897B;
+
+  font-weight:600;
+
+}
+
+
+
+ion-back-button{
+
+  --color:#00897B;
+
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero-section{
+
+
+  background:linear-gradient(
+    135deg,
+    #00897B,
+    #26A69A
+  );
+
+
+  padding:30px 22px;
+
+  border-radius:0 0 28px 28px;
+
+  color:white;
+
+
+}
+
+
+
+.hero-label{
+
+
+  font-size:11px;
+
+  letter-spacing:1px;
+
+  opacity:.8;
+
+
+}
+
+
+
+.hero-section h1{
+
+
+  font-size:28px;
+
+  margin:12px 0;
+
+
+}
+
+
+
+.hero-section p{
+
+
+  font-size:14px;
+
+  line-height:1.6;
+
+
+}
+
+
+
+/* =========================
+   CARD
+========================= */
+
+
+.note-card{
+
+
+  margin:18px 16px;
+
+  border-radius:18px;
+
+  background:#F5FAF9;
+
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+
+/* =========================
+   HEADER CARD
+========================= */
+
+
+.note-header{
+
+
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+
+}
+
+
+
+.icon-box{
+
+
+  width:45px;
+
+  height:45px;
+
+  border-radius:14px;
+
+  background:#DDF3EF;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:22px;
+
+
+}
+
+
+
+.note-header h2{
+
+
+  margin:0;
+
+  font-size:17px;
+
+  color:#333;
+
+
+}
+
+
+
+.note-header span{
+
+
+  font-size:12px;
+
+  color:#888;
+
+
+}
+
+
+
+
+
+/* =========================
+   ISI CATATAN
+========================= */
+
+
+.note-text{
+
+
+  max-width:330px;
+
+  margin:10px auto;
+
+
+  padding:18px 18px 18px 22px;
+
+
+  background:#FAFAF7;
+
+
+  border-radius:14px;
+
+
+  border-left:4px solid #80CBC4;
+
+
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+
+
+}
+
+
+
+
+.note-text p{
+
+
+  text-align:center;
+
+
+  color:#444;
+
+
+  line-height:1.9;
+
+
+  font-size:14px;
+
+
+  margin:0 0 16px;
+
+
+}
+
+
+
+.note-text p:last-child{
+
+
+  margin-bottom:0;
+
+
+}
+
+
+
+
+
+/* =========================
+   TEKS CARD BIASA
+========================= */
+
+
+.note-card p{
+
+
+  color:#555;
+
+  line-height:1.7;
+
+  font-size:14px;
+
+
+}
+
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+.footer{
+
+
+  text-align:center;
+
+  padding:30px;
+
+  color:#888;
+
+
+}
+
+
+
+.footer h3{
+
+
+  color:#00897B;
+
+  margin:0;
+
+
+}
+
+/* =========================
+   ANIMASI CARD
+========================= */
+
+.note-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 1. Animasi pas hover */
+}
+
+.note-card:active {
+  transform: scale(0.98); /* 2. Pas di-klik menciut dikit di HP */
+}
+
+/* 3. Kunci animasi buka tutup */
+.note-text {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  transition: max-height 0.6s ease, opacity 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+}
+
+/* 4. Kalau kebuka */
+.note-text.open {
+  max-height: 1500px; /* kasih gede biar muat Card 5 */
+  opacity: 1;
+  padding: 18px 18px 18px 22px; /* balikin padding aslinya */
+  margin: 10px auto;
+}

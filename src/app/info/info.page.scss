@@ -1,0 +1,377 @@
+/* =========================
+   HEADER
+========================= */
+
+ion-toolbar{
+
+  --background:#ffffff;
+  --border-color:transparent;
+
+}
+
+ion-title{
+
+  color:#00897B;
+  font-weight:600;
+  font-size:22px;
+
+}
+
+ion-back-button{
+
+  --color:#00897B;
+
+}
+
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section{
+
+  background:linear-gradient(
+    135deg,
+    #00897B,
+    #26A69A
+  );
+
+  padding:28px 22px 32px;
+
+  border-radius:0 0 28px 28px;
+
+  color:white;
+
+  box-shadow:0 5px 15px rgba(0,137,123,.25);
+
+}
+
+
+.hero-content{
+
+  max-width:700px;
+
+}
+
+
+.label-hero{
+
+  font-size:11px;
+
+  letter-spacing:1px;
+
+  font-weight:bold;
+
+  color:rgba(255,255,255,.8);
+
+  margin-bottom:10px;
+
+}
+
+
+.hero-section h1{
+
+  margin:0 0 12px;
+
+  font-size:28px;
+
+  font-weight:bold;
+
+}
+
+
+.deskripsi-hero{
+
+  margin:0;
+
+  font-size:14px;
+
+  line-height:1.6;
+
+  color:rgba(255,255,255,.92);
+
+}
+
+
+
+/* =========================
+   CARD INFORMASI
+========================= */
+
+.info-card{
+
+  margin:16px;
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+  border:none;
+
+}
+
+
+
+/* Warna lembut tiap card */
+
+.info-card:nth-of-type(1){
+
+  background:#E8F5F3;
+
+}
+
+
+.info-card:nth-of-type(2){
+
+  background:#EEF6FF;
+
+}
+
+
+.info-card:nth-of-type(3){
+
+  background:#FFF8E7;
+
+}
+
+
+.info-card:nth-of-type(4){
+
+  background:#F4F0FF;
+
+}
+
+
+
+.info-card ion-card-content{
+
+  padding:20px;
+
+}
+
+
+
+/* =========================
+   HEADER CARD
+========================= */
+
+.info-header{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:14px;
+
+}
+
+
+.info-header h3{
+
+  margin:0;
+
+  color:#333;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+}
+
+
+.info-header span{
+
+  color:#777;
+
+  font-size:12px;
+
+}
+
+
+
+/* =========================
+   ICON BOX
+========================= */
+
+.icon-box{
+
+  width:45px;
+
+  height:45px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  border-radius:14px;
+
+  font-size:21px;
+
+  box-shadow:0 3px 8px rgba(0,0,0,.08);
+
+}
+
+
+
+.primary{
+
+  background:#CDEFEA;
+
+}
+
+
+.success{
+
+  background:#DDF3DF;
+
+}
+
+
+.warning{
+
+  background:#FFF0C2;
+
+}
+
+
+.info{
+
+  background:#DCEEFF;
+
+}
+
+
+.danger{
+
+  background:#F8DCE5;
+
+}
+
+
+
+/* =========================
+   TEXT
+========================= */
+
+.info-card p{
+
+  margin:0;
+
+  color:#555;
+
+  font-size:14px;
+
+  line-height:1.7;
+
+}
+
+
+
+/* =========================
+   LIST
+========================= */
+
+ol{
+
+  padding-left:20px;
+
+  margin:0;
+
+}
+
+
+ol li{
+
+  margin-bottom:10px;
+
+  color:#555;
+
+  line-height:1.6;
+
+}
+
+
+
+/* =========================
+   GRID
+========================= */
+
+ion-row{
+
+  border-bottom:1px solid rgba(0,0,0,.08);
+
+  padding:8px 0;
+
+}
+
+
+ion-row:last-child{
+
+  border-bottom:none;
+
+}
+
+
+ion-col:first-child{
+
+  font-weight:bold;
+
+  color:#444;
+
+}
+
+
+ion-col:last-child{
+
+  text-align:right;
+
+  color:#666;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+  text-align:center;
+
+  padding:25px;
+
+  color:#888;
+
+  font-size:12px;
+
+}
+
+
+.footer-title{
+
+  color:#00897B;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+}
+
+
+.footer-title span{
+
+  color:#999;
+
+  font-size:12px;
+
+  font-weight:normal;
+
+}

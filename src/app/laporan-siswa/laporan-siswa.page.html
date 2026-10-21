@@ -1,0 +1,354 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Laporan Siswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- BANNER HALAMAN -->
+  <section class="page-banner">
+    <div class="banner-content">
+      <span class="banner-label">EDUCLUSTER · LAPORAN AKADEMIK</span>
+      <h1>Laporan Siswa</h1>
+      <p>
+        Lihat hasil analisis prestasi dan cetak laporan setiap siswa
+        berdasarkan hasil clustering.
+      </p>
+    </div>
+    <div class="banner-icon">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </div>
+  </section>
+
+  
+  <ion-card class="search-card">
+    <ion-card-content>
+      <ion-searchbar
+        [(ngModel)]="kataKunci"
+        (ionInput)="cariSiswa()"
+        debounce="200"
+        placeholder="Cari nama siswa atau NISN..."
+        aria-label="Cari nama siswa atau NISN">
+      </ion-searchbar>
+
+      <div class="search-info">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <span>
+          Seluruh siswa ditampilkan secara otomatis. Gunakan pencarian
+          untuk menemukan siswa tertentu.
+        </span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- STATUS MEMUAT -->
+  <div class="empty-state" *ngIf="sedangMemuat">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Memuat data siswa...</p>
+  </div>
+
+  <!-- DAFTAR SISWA -->
+  <div class="student-list" *ngIf="!sedangMemuat && siswaHasilPencarian.length > 0">
+    <ion-card
+      class="student-list-card"
+      *ngFor="let siswa of siswaHasilPencarian; let i = index">
+
+      <ion-card-content>
+        <div class="student-row">
+          <div class="student-number">
+            {{ i + 1 }}
+          </div>
+
+          <div class="student-info">
+            <h3>{{ siswa.Nama || siswa.nama || 'Nama tidak tersedia' }}</h3>
+            <p>
+              <ion-icon name="id-card-outline"></ion-icon>
+              NISN: {{ siswa.Nisn || siswa.nisn || '-' }}
+            </p>
+
+            <div class="student-status">
+              <ion-badge
+                *ngIf="cariHasilCluster(siswa)?.kategori"
+                [color]="warnaCluster(cariHasilCluster(siswa)?.kategori)">
+                {{ cariHasilCluster(siswa)?.kategori }}
+              </ion-badge>
+
+              <ion-badge color="medium"
+                *ngIf="!cariHasilCluster(siswa)">
+                Belum ada hasil clustering
+              </ion-badge>
+            </div>
+          </div>
+
+          <div class="student-actions">
+            <ion-button
+              size="small"
+              fill="outline"
+              color="danger"
+              (click)="lihatSiswa(siswa)">
+              <ion-icon name="eye-outline" slot="start"></ion-icon>
+              Buka
+            </ion-button>
+
+            <ion-button
+              size="small"
+              color="success"
+              (click)="cetakSiswa(siswa)">
+              <ion-icon name="print-outline" slot="start"></ion-icon>
+              Unduh
+            </ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- DATA TIDAK DITEMUKAN -->
+  <div
+    class="empty-state"
+    *ngIf="!sedangMemuat && siswaHasilPencarian.length === 0">
+
+    <ion-icon name="search-outline"></ion-icon>
+    <h3>Siswa tidak ditemukan</h3>
+    <p>Periksa kembali nama atau NISN yang kamu masukkan.</p>
+
+    <ion-button fill="outline" color="primary" (click)="resetPencarian()">
+      Tampilkan Semua Siswa
+    </ion-button>
+  </div>
+
+  <!-- DETAIL LAPORAN -->
+  <div id="detail-laporan" *ngIf="siswaTerpilih">
+
+    <section class="section-heading report-heading">
+      <div>
+        <span class="section-label">HASIL ANALISIS</span>
+        <h2>Detail Laporan Siswa</h2>
+        <p>Informasi dan rekomendasi pembelajaran siswa terpilih.</p>
+      </div>
+
+      <ion-button
+        fill="clear"
+        color="medium"
+        (click)="tutupLaporan()">
+        <ion-icon name="close-outline" slot="start"></ion-icon>
+        Tutup
+      </ion-button>
+    </section>
+
+    <!-- IDENTITAS SISWA -->
+    <ion-card class="report-card student-card">
+      <ion-card-content>
+        <div class="report-card-heading">
+          <div class="report-icon">
+            <ion-icon name="person-outline"></ion-icon>
+          </div>
+          <div>
+            <span class="section-label">IDENTITAS</span>
+            <h2>Data Siswa</h2>
+          </div>
+        </div>
+
+        <div class="identity-grid">
+          <div class="identity-item">
+            <span>Nama Lengkap</span>
+            <strong>{{ siswaTerpilih.Nama || siswaTerpilih.nama }}</strong>
+          </div>
+          <div class="identity-item">
+            <span>NISN</span>
+            <strong>{{ siswaTerpilih.Nisn || siswaTerpilih.nisn || '-' }}</strong>
+          </div>
+          <div class="identity-item">
+            <span>Rata-rata Nilai</span>
+            <strong>{{ rataRataSiswa | number:'1.2-2' }}</strong>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- HASIL CLUSTER -->
+    <ion-card class="report-card cluster-card">
+      <ion-card-content>
+        <div class="report-card-heading">
+          <div class="report-icon">
+            <ion-icon name="analytics-outline"></ion-icon>
+          </div>
+          <div>
+            <span class="section-label">HASIL PENGELOMPOKAN</span>
+            <h2>Hasil Clustering</h2>
+          </div>
+        </div>
+
+        <div class="cluster-result" *ngIf="hasilSiswaTerpilih; else belumClustering">
+          <div class="cluster-category">
+            <span>Kategori prestasi siswa</span>
+            <ion-badge [color]="warnaCluster(hasilSiswaTerpilih.kategori)">
+              {{ hasilSiswaTerpilih.kategori }}
+            </ion-badge>
+          </div>
+          <p>
+            Hasil ini mengikuti data clustering yang tersedia pada aplikasi.
+            Kategori digunakan sebagai salah satu bahan pertimbangan
+            dalam memberikan pendampingan pembelajaran.
+          </p>
+        </div>
+
+        <ng-template #belumClustering>
+          <div class="notice-box">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            Hasil clustering belum tersedia untuk siswa ini.
+            Jalankan proses clustering terlebih dahulu.
+          </div>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- JARAK CENTROID -->
+    <ion-card class="report-card distance-card" *ngIf="jarakSiswaTerpilih">
+      <ion-card-content>
+        <div class="report-card-heading">
+          <div class="report-icon">
+            <ion-icon name="git-compare-outline"></ion-icon>
+          </div>
+          <div>
+            <span class="section-label">PERHITUNGAN K-MEANS</span>
+            <h2>Jarak ke Centroid</h2>
+          </div>
+        </div>
+
+        <div class="distance-grid">
+          <div class="distance-item">
+            <span>Centroid C1</span>
+            <strong>{{ jarakSiswaTerpilih.c1 ?? '-' }}</strong>
+          </div>
+          <div class="distance-item">
+            <span>Centroid C2</span>
+            <strong>{{ jarakSiswaTerpilih.c2 ?? '-' }}</strong>
+          </div>
+          <div class="distance-item">
+            <span>Centroid C3</span>
+            <strong>{{ jarakSiswaTerpilih.c3 ?? '-' }}</strong>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- NILAI MATA PELAJARAN -->
+    <ion-card class="report-card subject-card">
+      <ion-card-content>
+        <div class="report-card-heading">
+          <div class="report-icon">
+            <ion-icon name="book-outline"></ion-icon>
+          </div>
+          <div>
+            <span class="section-label">RINCIAN NILAI</span>
+            <h2>Analisis Mata Pelajaran</h2>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <ion-grid>
+            <ion-row class="table-header">
+              <ion-col size="2">No.</ion-col>
+              <ion-col size="6" class="text-left">Mata Pelajaran</ion-col>
+              <ion-col size="4">Nilai</ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let mapel of analisisMapel; let i = index">
+              <ion-col size="2">{{ i + 1 }}</ion-col>
+              <ion-col size="6" class="text-left">{{ mapel.nama }}</ion-col>
+              <ion-col size="4">
+                <strong>{{ mapel.nilai | number:'1.0-2' }}</strong>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="analysis-summary">
+          <div>
+            <span>Rata-rata nilai</span>
+            <strong>{{ rataRataSiswa | number:'1.2-2' }}</strong>
+          </div>
+          <div>
+            <span>Nilai tertinggi</span>
+            <strong>{{ mapelDominan || '-' }}</strong>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- REKOMENDASI -->
+    <ion-card class="report-card recommendation-card">
+      <ion-card-content>
+        <div class="report-card-heading">
+          <div class="report-icon">
+            <ion-icon name="school-outline"></ion-icon>
+          </div>
+          <div>
+            <span class="section-label">TINDAK LANJUT</span>
+            <h2>Rekomendasi Pembelajaran</h2>
+          </div>
+        </div>
+        <p class="recommendation-text">{{ rekomendasi }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- PESAN ORANG TUA -->
+    <ion-card class="report-card parent-card">
+      <ion-card-content>
+        <div class="report-card-heading">
+          <div class="report-icon">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+          <div>
+            <span class="section-label">KOMUNIKASI</span>
+            <h2>Pesan untuk Orang Tua / Wali</h2>
+          </div>
+        </div>
+
+        <div class="parent-message">
+          {{ pesanOrangTua }}
+        </div>
+
+        <div class="letter-footer">
+          <p>
+            Demikian laporan hasil analisis ini disampaikan sebagai bahan
+            perhatian dan pendampingan dalam proses belajar siswa.
+          </p>
+
+          <div class="signature">
+            <p>Medan, .................... 2026</p>
+            <p>Guru Wali Kelas V</p>
+            <div class="signature-space"></div>
+            <strong>Ibu Remika</strong>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- AKSI LAPORAN -->
+    <div class="report-actions">
+      <ion-button expand="block" color="primary" (click)="cetakPDF()">
+        <ion-icon name="print-outline" slot="start"></ion-icon>
+        Cetak / Simpan PDF
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" color="medium" (click)="salinPesan()">
+        <ion-icon name="copy-outline" slot="start"></ion-icon>
+        Salin Pesan untuk Orang Tua
+      </ion-button>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <p>EDUCLUSTER</p>
+    <span>Sistem Analisis Prestasi Siswa</span>
+  </footer>
+
+</ion-content>

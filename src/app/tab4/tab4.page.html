@@ -1,0 +1,211 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Analisis Hasil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- HEADER HALAMAN -->
+  <div class="page-banner">
+    <div class="banner-content">
+      <span class="banner-label">HASIL ANALISIS PENELITIAN</span>
+      <h1>Analisis Hasil</h1>
+      <p>Analisis hasil clustering untuk mengetahui kualitas pengelompokan dan karakteristik tingkat prestasi siswa.</p>
+    </div>
+    <div class="banner-icon">📊</div>
+  </div>
+
+  <!-- EVALUASI CLUSTER -->
+  <div class="section-label">EVALUASI CLUSTER</div>
+
+  <ion-card class="result-card dbi-card">
+    <div class="section-header dbi-header">
+      <div>
+        <span>EVALUASI ALGORITMA</span>
+        <h2>📈 Evaluasi Cluster</h2>
+      </div>
+      <div class="section-icon">📊</div>
+    </div>
+
+    <ion-card-content>
+      <div class="dbi-list">
+        <div class="dbi-item">
+          <span>Metode Evaluasi</span>
+          <b>Davies-Bouldin Index</b>
+        </div>
+
+        <div class="dbi-item">
+          <span>Nilai DBI</span>
+          <b>{{nilaiDBI}}</b>
+        </div>
+
+        <div class="dbi-item">
+          <span>Keterangan</span>
+          <b>{{keteranganDBI}}</b>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- DOMINASI MATA PELAJARAN -->
+  <div class="section-label">KARAKTERISTIK CLUSTER</div>
+
+  <ion-card class="result-card dominance-card">
+    <div class="section-header dominance-header">
+      <div>
+        <span>HASIL ANALISIS DATA</span>
+        <h2>📚 Dominasi Mata Pelajaran</h2>
+      </div>
+      <div class="section-icon">📚</div>
+    </div>
+
+    <ion-card-content>
+      <div class="table-wrapper">
+        <ion-grid>
+          <ion-row class="table-header">
+            <ion-col>Cluster</ion-col>
+            <ion-col>Jumlah Siswa</ion-col>
+            <ion-col>Mapel Dominan</ion-col>
+            <ion-col>Rata-rata</ion-col>
+          </ion-row>
+
+          <ion-row *ngFor="let d of analisisCluster">
+            <ion-col>{{d.cluster}}</ion-col>
+            <ion-col>{{d.jumlahSiswa}} siswa</ion-col>
+            <ion-col>{{d.mapelDominan}}</ion-col>
+            <ion-col>{{d.nilaiRata}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- GRAFIK CLUSTER -->
+  <ion-card class="result-card chart-card" *ngIf="sudahAnalisis">
+    <div class="section-header chart-header">
+      <div>
+        <span>VISUALISASI DATA</span>
+        <h2>📊 Jumlah Siswa per Cluster</h2>
+      </div>
+      <div class="section-icon">📊</div>
+    </div>
+
+    <ion-card-content>
+      <div class="chart-container">
+        <canvas id="clusterChart"></canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- REKOMENDASI PEMBELAJARAN -->
+  <div class="section-label">BASIS PEMBELAJARAN</div>
+
+  <ion-card class="result-card recommendation-card">
+    <div class="section-header recommendation-header">
+      <div>
+        <span>HASIL ANALISIS</span>
+        <h2>💡 Rekomendasi Pembelajaran</h2>
+      </div>
+      <div class="section-icon">💡</div>
+    </div>
+
+    <ion-card-content>
+      <ion-accordion-group>
+        <ion-accordion
+          *ngFor="let d of analisisCluster"
+          [value]="'cluster' + d.cluster">
+
+          <!-- HEADER ACCORDION -->
+          <ion-item slot="header" color="light">
+            <ion-label>
+              <h3>Cluster {{d.cluster}}</h3>
+              <p>
+                {{d.jumlahSiswa}} siswa -
+                {{d.mapelDominan}} -
+                Rata: {{d.nilaiRata}}
+              </p>
+            </ion-label>
+          </ion-item>
+
+          <!-- ISI ACCORDION -->
+          <div class="ion-padding" slot="content">
+
+            <div class="info-grid">
+              <div>
+                <span>Mapel Dominan</span>
+                <b>{{d.mapelDominan}}</b>
+              </div>
+
+              <div>
+                <span>Rata-rata Nilai</span>
+                <b>{{d.nilaiRata}}</b>
+              </div>
+            </div>
+
+            <div class="advice-box">
+              <ion-icon name="bulb-outline" color="warning"></ion-icon>
+
+              <div>
+                <span>Arahan Pembelajaran</span>
+
+                <p *ngIf="d.cluster == 'C1' || d.cluster == '1'">
+                  Siswa pada kelompok ini dapat diberikan bimbingan intensif dan remedial untuk mempertahankan serta meningkatkan prestasi.
+                </p>
+
+                <p *ngIf="d.cluster == 'C2' || d.cluster == '2'">
+                  Siswa pada kelompok ini dapat diberikan program olimpiade dan akselerasi agar prestasi semakin meningkat.
+                </p>
+
+                <p *ngIf="d.cluster == 'C3' || d.cluster == '3'">
+                  Siswa pada kelompok ini memerlukan bimbingan dan pengayaan lebih intensif dan remedial, terutama pada mata pelajaran dengan nilai rendah.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- TOMBOL ANALISIS DAN LAPORAN -->
+  <div class="action-buttons">
+
+    <div class="action-item">
+      <ion-button
+        expand="block"
+        class="analysis-button"
+        color="success"
+        (click)="analisisData()">
+        <ion-icon name="analytics-outline" slot="start"></ion-icon>
+        ANALISIS DATA
+      </ion-button>
+    </div>
+
+    <div class="action-item">
+      <ion-button
+        expand="block"
+        class="report-button"
+        color="warning"
+        routerLink="/laporan-siswa">
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        LAPORAN SISWA
+      </ion-button>
+    </div>
+
+  </div>
+
+  <!-- TOMBOL KELUAR -->
+  <div class="logout-container">
+    <ion-button
+      class="logout-button"
+      color="danger"
+      (click)="logout()">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      KELUAR
+    </ion-button>
+  </div>
+
+</ion-content>
+```

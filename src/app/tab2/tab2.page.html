@@ -1,0 +1,781 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Data Siswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- ======================= -->
+  <!-- HEADER DATASET -->
+  <!-- ======================= -->
+
+  <div class="page-banner">
+
+    <div class="banner-content">
+
+      <span class="banner-label">
+        DATASET PENELITIAN
+      </span>
+
+      <h1>Data Siswa</h1>
+
+      <p>
+        Kelola data nilai siswa sebelum dilakukan proses K-Means Clustering.
+      </p>
+
+    </div>
+
+    <div class="banner-icon">
+      📊
+    </div>
+
+  </div>
+
+
+  <!-- ======================= -->
+  <!-- IMPORT DATA EXCEL -->
+  <!-- ======================= -->
+
+  <ion-card class="import-card">
+
+    <div class="section-header import-header-color">
+
+      <div>
+
+        <span>IMPORT DATA</span>
+
+        <h2>
+          📥 Import Data Excel
+        </h2>
+
+      </div>
+
+      <div class="section-icon">
+        📊
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+      <p class="import-info">
+        Import data nilai siswa menggunakan file Excel.
+        Pastikan data sesuai dengan format yang telah ditentukan.
+      </p>
+
+
+      <!-- INPUT FILE EXCEL -->
+
+      <input
+        type="file"
+        accept=".xlsx,.xls"
+        #fileInput
+        hidden
+        (change)="pilihFileExcel($event)"
+      />
+
+
+      <!-- TOMBOL PILIH FILE -->
+
+      <ion-button
+        expand="block"
+        color="success"
+        (click)="fileInput.click()">
+
+        📥 PILIH FILE EXCEL
+
+      </ion-button>
+
+
+      <!-- INFORMASI FILE -->
+
+      <div
+        class="file-info"
+        *ngIf="namaFileExcel">
+
+        <div class="file-name">
+
+          📄 {{ namaFileExcel }}
+
+        </div>
+
+
+        <div class="file-count">
+
+          {{ dataExcel.length }} data siswa ditemukan
+
+        </div>
+
+
+        <!-- TOMBOL LIHAT PREVIEW -->
+
+        <ion-button
+          expand="block"
+          fill="outline"
+          color="success"
+          class="btn-preview"
+          (click)="bukaPreview()">
+
+          👁️ LIHAT PREVIEW
+
+        </ion-button>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- MODAL PREVIEW EXCEL -->
+  <!-- ======================= -->
+
+  <ion-modal
+    [isOpen]="tampilPreview"
+    (didDismiss)="tampilPreview = false">
+
+    <ng-template>
+
+      <ion-header>
+
+        <ion-toolbar>
+
+          <ion-title>
+            Preview Data Excel
+          </ion-title>
+
+          <ion-buttons slot="end">
+
+            <ion-button
+              (click)="tampilPreview = false">
+
+              Tutup
+
+            </ion-button>
+
+          </ion-buttons>
+
+        </ion-toolbar>
+
+      </ion-header>
+
+
+      <ion-content class="ion-padding">
+
+        <div class="modal-preview-header">
+
+          <span>
+            PREVIEW DATA EXCEL
+          </span>
+
+          <h2>
+            📋 Data yang Akan Diimport
+          </h2>
+
+          <p>
+            {{ dataExcel.length }} data siswa ditemukan dari file Excel.
+          </p>
+
+        </div>
+
+
+        <!-- ======================= -->
+        <!-- TABEL PREVIEW -->
+        <!-- ======================= -->
+
+        <div
+          class="preview-table"
+          style="overflow-x: auto;">
+
+          <ion-grid class="preview-grid">
+
+
+            <!-- HEADER PREVIEW -->
+
+            <ion-row class="preview-title">
+
+              <ion-col>
+                Nama
+              </ion-col>
+
+              <ion-col>
+                NISN
+              </ion-col>
+
+              <ion-col>
+                Agama
+              </ion-col>
+
+              <ion-col>
+                PPKN
+              </ion-col>
+
+              <ion-col>
+                Indo
+              </ion-col>
+
+              <ion-col>
+                Inggris
+              </ion-col>
+
+              <ion-col>
+                MTK
+              </ion-col>
+
+              <ion-col>
+                IPAS
+              </ion-col>
+
+              <ion-col>
+                PJOK
+              </ion-col>
+
+              <ion-col>
+                Seni
+              </ion-col>
+
+            </ion-row>
+
+
+            <!-- DATA EXCEL -->
+
+            <ion-row
+              *ngFor="let data of dataExcel"
+              class="preview-data">
+
+              <ion-col>
+                {{ data.Nama }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.NISN || data.Nisn }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.Agama }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.PPKN }}
+              </ion-col>
+
+              <ion-col>
+                {{ data['Bahasa Indonesia'] || data.BIndonesia }}
+              </ion-col>
+
+              <ion-col>
+                {{ data['Bahasa Inggris'] || data.Binggris }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.Matematika || data.MTK }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.IPAS }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.PJOK }}
+              </ion-col>
+
+              <ion-col>
+                {{ data.Seni }}
+              </ion-col>
+
+            </ion-row>
+
+          </ion-grid>
+
+        </div>
+
+
+        <!-- ======================= -->
+        <!-- CATATAN PREVIEW -->
+        <!-- ======================= -->
+
+        <div class="preview-note">
+
+          <p>
+            Periksa data terlebih dahulu sebelum melakukan
+            import ke database.
+          </p>
+
+        </div>
+
+
+        <!-- ======================= -->
+        <!-- TOMBOL TUTUP -->
+        <!-- ======================= -->
+
+        <ion-button
+          expand="block"
+          color="medium"
+          (click)="tampilPreview = false">
+
+          TUTUP PREVIEW
+
+        </ion-button>
+
+        <!-- ======================= -->
+<!-- TOMBOL IMPORT DATABASE -->
+<!-- ======================= -->
+
+<ion-button
+  expand="block"
+  color="success"
+  class="btn-import-database"
+  (click)="importKeDatabase()">
+
+  📥 IMPORT KE DATABASE
+
+</ion-button>
+
+      </ion-content>
+
+    </ng-template>
+
+  </ion-modal>
+
+
+  <!-- ======================= -->
+  <!-- TABEL DATA SISWA -->
+  <!-- ======================= -->
+
+  <ion-card class="table-card">
+
+    <div class="section-header table-header-color">
+
+      <div>
+
+        <span>DATASET SISWA</span>
+
+        <h2>
+          📋 Data Nilai Siswa
+        </h2>
+
+      </div>
+
+      <div class="section-icon">
+        👨‍🎓
+      </div>
+
+    </div>
+
+
+    <ion-card-content>
+
+
+      <!-- ======================= -->
+      <!-- PENCARIAN DATA SISWA -->
+      <!-- ======================= -->
+
+      <ion-item
+        lines="none"
+        class="search-box">
+
+        <ion-icon
+          name="search-outline"
+          slot="start">
+        </ion-icon>
+
+        <ion-input
+          placeholder="Cari nama atau NISN..."
+          [(ngModel)]="kataCari"
+          (ionInput)="cariData()">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- ======================= -->
+      <!-- TABEL DATABASE -->
+      <!-- ======================= -->
+
+      <div
+        style="overflow-x: auto; margin-top: 10px;">
+
+        <ion-grid>
+
+
+          <!-- HEADER TABEL -->
+
+          <ion-row class="table-title">
+
+            <ion-col>
+              Nama
+            </ion-col>
+
+            <ion-col>
+              NISN
+            </ion-col>
+
+            <ion-col>
+              Agama
+            </ion-col>
+
+            <ion-col>
+              PPKN
+            </ion-col>
+
+            <ion-col>
+              Indo
+            </ion-col>
+
+            <ion-col>
+              Inggris
+            </ion-col>
+
+            <ion-col>
+              MTK
+            </ion-col>
+
+            <ion-col>
+              IPAS
+            </ion-col>
+
+            <ion-col>
+              PJOK
+            </ion-col>
+
+            <ion-col>
+              Seni
+            </ion-col>
+
+          </ion-row>
+
+
+          <!-- DATA SISWA -->
+
+          <ion-row
+            *ngFor="let s of dataSiswa"
+            (click)="pilihData(s)"
+            class="table-data">
+
+            <ion-col>
+              {{ s.Nama }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.Nisn }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.Agama }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.PPKN }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.BIndonesia }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.Binggris }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.MTK }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.IPAS }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.PJOK }}
+            </ion-col>
+
+            <ion-col>
+              {{ s.Seni }}
+            </ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- ======================= -->
+  <!-- TOMBOL PROSES DATA -->
+  <!-- ======================= -->
+
+  <ion-button
+    expand="block"
+    color="tertiary"
+    (click)="prosesData()">
+
+    📊 PROSES DATA
+
+  </ion-button>
+
+
+  <!-- ======================= -->
+  <!-- TOMBOL KELOLA DATA -->
+  <!-- ======================= -->
+
+  <ion-button
+    expand="block"
+    color="secondary"
+    class="btn-kelola"
+    (click)="toggleForm()">
+
+    {{ tampilForm ? '🔽 TUTUP FORM DATA' : '📝 KELOLA DATA SISWA' }}
+
+  </ion-button>
+
+
+  <!-- ======================= -->
+  <!-- FORM INPUT -->
+  <!-- ======================= -->
+
+  <div
+    class="form-section"
+    *ngIf="tampilForm">
+
+
+    <div class="section-header form-header-color">
+
+      <div>
+
+        <span>DATA SISWA</span>
+
+        <h2>
+          📝 Input Nilai Siswa
+        </h2>
+
+      </div>
+
+      <div class="section-icon">
+        ✏️
+      </div>
+
+    </div>
+
+
+    <div class="form-content">
+
+
+      <!-- NAMA SISWA -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nama Siswa
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="nama">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- NISN -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          NISN
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="nisn">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- AGAMA -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai Agama
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="agama">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- PPKN -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai PPKN
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="ppkn">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- BAHASA INDONESIA -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai Bahasa Indonesia
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="indo">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- BAHASA INGGRIS -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai Bahasa Inggris
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="inggris">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- MTK -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai MTK
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="mtk">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- IPAS -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai IPAS
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="ipas">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- PJOK -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai PJOK
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="pjok">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- SENI BUDAYA -->
+
+      <ion-item>
+
+        <ion-label position="floating">
+          Nilai Seni Budaya
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="seni">
+        </ion-input>
+
+      </ion-item>
+
+
+      <!-- ======================= -->
+      <!-- TOMBOL CRUD -->
+      <!-- ======================= -->
+
+      <div class="button-group">
+
+
+        <ion-button
+          expand="block"
+          color="success"
+          (click)="tambahData()">
+
+          💾 Simpan
+
+        </ion-button>
+
+
+        <ion-button
+          expand="block"
+          color="primary"
+          (click)="resetForm()">
+
+          ➕ Tambah
+
+        </ion-button>
+
+
+        <ion-button
+          expand="block"
+          color="warning"
+          (click)="editMode()">
+
+          ✏️ Edit
+
+        </ion-button>
+
+
+        <ion-button
+          expand="block"
+          color="danger"
+          (click)="hapusSemua()">
+
+          🗑️ Hapus
+
+        </ion-button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ion-content>

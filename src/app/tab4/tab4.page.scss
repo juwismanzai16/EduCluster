@@ -1,0 +1,494 @@
+/* =================================
+GLOBAL
+================================= */
+
+ion-content {
+  --background: #f5f7f8;
+}
+
+/* =================================
+HEADER TAB 4
+================================= */
+
+ion-toolbar {
+  --background: #ffffff;
+  --border-color: transparent;
+}
+
+ion-title {
+  color: #00897B;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* =================================
+PAGE BANNER
+================================= */
+
+.page-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 20px 22px;
+  margin: -16px -16px 20px;
+  background: linear-gradient(135deg, #00897B, #26A69A);
+  border-radius: 0 0 18px 18px;
+  color: #ffffff;
+}
+
+.banner-content {
+  max-width: 85%;
+}
+
+.banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+
+.page-banner h1 {
+  margin: 7px 0;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.page-banner p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.banner-icon {
+  font-size: 42px;
+  margin-left: 10px;
+}
+
+/* =================================
+SECTION LABEL
+================================= */
+
+.section-label {
+  margin: 8px 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #78909C;
+}
+
+/* =================================
+CARD UMUM
+================================= */
+
+ion-card {
+  margin: 0 0 18px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.result-card {
+  transition: transform 0.2s ease;
+}
+
+/* =================================
+SECTION HEADER
+================================= */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.section-header span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  opacity: 0.75;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.section-icon {
+  font-size: 27px;
+  opacity: 0.9;
+}
+
+/* =================================
+HEADER CARD
+================================= */
+
+.dbi-header {
+  background: #FFF3E0;
+  border-left: 5px solid #FB8C00;
+  color: #E65100;
+}
+
+.dominance-header {
+  background: #EDE7F6;
+  border-left: 5px solid #7E57C2;
+  color: #512DA8;
+}
+
+.chart-header {
+  background: #E3F2FD;
+  border-left: 5px solid #1E88E5;
+  color: #1565C0;
+}
+
+.recommendation-header {
+  background: #E8F5E9;
+  border-left: 5px solid #43A047;
+  color: #2E7D32;
+}
+
+/* =================================
+CARD CONTENT
+================================= */
+
+ion-card-content {
+  padding: 14px 16px;
+}
+
+/* =================================
+EVALUASI DBI
+================================= */
+
+.dbi-list {
+  display: grid;
+  gap: 10px;
+}
+
+.dbi-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f8fafb;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #607D8B;
+}
+
+.dbi-item span {
+  text-align: left;
+}
+
+.dbi-item b {
+  color: #263238;
+  font-weight: 600;
+  text-align: center;
+  transform: translateX(-15px);
+}
+
+/* =================================
+TABLE
+================================= */
+
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+ion-grid {
+  min-width: 600px;
+  padding: 0;
+}
+
+.table-header {
+  background: #00897B;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.table-header ion-col {
+  padding: 10px 8px;
+  text-align: center;
+}
+
+ion-row:not(.table-header) {
+  border-bottom: 1px solid #ECEFF1;
+  font-size: 12px;
+  color: #455A64;
+}
+
+ion-row:not(.table-header) ion-col {
+  padding: 9px 8px;
+  text-align: center;
+}
+
+/* =================================
+GRAFIK
+================================= */
+
+.chart-container {
+  position: relative;
+  height: 260px;
+  width: 100%;
+}
+
+/* =================================
+REKOMENDASI
+================================= */
+
+.recommendation-item {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f8fafb;
+  border-left: 4px solid #43A047;
+  border-radius: 8px;
+}
+
+.recommendation-item:last-child {
+  margin-bottom: 0;
+}
+
+.recommendation-title {
+  margin-bottom: 5px;
+  color: #2E7D32;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.recommendation-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #455A64;
+}
+
+.recommendation-item b {
+  color: #263238;
+}
+
+/* =================================
+TATA LETAK TOMBOL
+================================= */
+
+/* Dua tombol utama sejajar */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 760px;
+  margin: 28px auto 0;
+  align-items: stretch;
+}
+
+.action-item {
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.action-item ion-button {
+  width: 100%;
+  height: 46px;
+  margin: 0;
+  --border-radius: 9px;
+  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+/* Jaga ikon dan tulisan tetap rapi */
+.action-item ion-button ion-icon {
+  font-size: 18px;
+  margin-right: 7px;
+}
+
+/* Tombol keluar di tengah, pada baris berikutnya */
+.logout-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 12px auto 28px;
+}
+
+.logout-button {
+  width: 180px;
+  height: 42px;
+  margin: 0;
+  --border-radius: 9px;
+  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.logout-button ion-icon {
+  font-size: 17px;
+  margin-right: 6px;
+}
+
+/* =================================
+REKOMENDASI ACCORDION
+================================= */
+
+ion-accordion {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+ion-accordion ion-item[slot="header"] {
+  --background: #f8f9fa;
+  --border-radius: 12px;
+  --min-height: 60px;
+}
+
+ion-accordion ion-item[slot="header"] h3 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 15px;
+}
+
+ion-accordion ion-item[slot="header"] p {
+  font-size: 12px;
+  color: gray;
+  margin: 2px 0 0;
+}
+
+/* =================================
+INFO GRID
+================================= */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #eee;
+}
+
+.info-grid span {
+  font-size: 12px;
+  color: gray;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.info-grid b {
+  font-size: 15px;
+  color: #333;
+}
+
+/* =================================
+ARAHAN PEMBELAJARAN
+================================= */
+
+.advice-box {
+  display: flex;
+  gap: 10px;
+  background: #fff8e1;
+  border-left: 4px solid #ffc107;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.advice-box ion-icon {
+  flex-shrink: 0;
+  font-size: 22px;
+  margin-top: 2px;
+}
+
+.advice-box span {
+  font-weight: bold;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.advice-box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* =================================
+RESPONSIVE TABLET DAN HP
+================================= */
+
+@media (max-width: 600px) {
+  .page-banner {
+    padding: 22px 16px 20px;
+  }
+
+  .page-banner h1 {
+    font-size: 24px;
+  }
+
+  .page-banner p {
+    font-size: 12px;
+  }
+
+  .banner-icon {
+    font-size: 34px;
+  }
+
+  .section-header h2 {
+    font-size: 16px;
+  }
+
+  ion-card-content {
+    padding: 12px;
+  }
+
+  .dbi-item {
+    font-size: 12px;
+  }
+
+  /* Tetap sejajar, dengan jarak yang lebih kecil */
+  .action-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .action-item ion-button {
+    height: 44px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .action-item ion-button ion-icon {
+    font-size: 16px;
+    margin-right: 4px;
+  }
+
+  /* Tombol keluar tetap terpisah di bawah */
+  .logout-container {
+    margin-top: 12px;
+    margin-bottom: 22px;
+  }
+
+  .logout-button {
+    width: 155px;
+    height: 42px;
+  }
+
+  .info-grid {
+    gap: 8px;
+  }
+
+  .advice-box p {
+    font-size: 13px;
+  }
+}
